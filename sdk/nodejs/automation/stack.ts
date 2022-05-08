@@ -280,6 +280,9 @@ Event: ${line}\n${e.toString()}`);
             if (opts.diff) {
                 args.push("--diff");
             }
+            if (opts.json) {
+                args.push("--json");
+            }
             if (opts.replace) {
                 for (const rURN of opts.replace) {
                     args.push("--replace", rURN);
@@ -771,6 +774,7 @@ export interface PreviewOptions {
     target?: string[];
     targetDependents?: boolean;
     userAgent?: string;
+    json?: boolean;
     program?: PulumiFn;
     onOutput?: (out: string) => void;
     onEvent?: (event: EngineEvent) => void;
